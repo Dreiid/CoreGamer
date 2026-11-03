@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Metadatos SEO Técnico -->
+    <title>Core Gamer | Componentes de PC, Hardware y PCs Armadas</title>
+    <meta name="description"
+        content="Tienda especializada en componentes informáticos, periféricos y computadoras de alto rendimiento para gamers y entusiastas de la tecnología. Asesoramiento personalizado.">
+    <meta name="keywords"
+        content="Core Gamer, hardware, componentes de pc, pc armadas, tarjetas graficas, procesadores, gaming argentina">
+    <meta name="author" content="Andres Almonacid">
+    <!-- Favicon de la página -->
+    <link rel="icon" type="image/png" href="img/page/favicon.jpg">
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados basados en el Manual de Identidad Core Gamer -->
+    <style>
+        :root {
+            --bg-dark: #0D1117;
+            --accent-blue: #00B0FF;
+            --card-bg: #161b22;
+            --text-light: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #010409 !important;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .navbar-brand {
+            color: var(--accent-blue) !important;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.95)), url('multimedia/imagenesproductos/producto1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 70px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .btn-core {
+            background-color: var(--accent-blue);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-core:hover {
+            background-color: #0088cc;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 176, 255, 0.5);
+        }
+
+        /* Estilo de botones de categorías tipo Compra Gamer */
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) var(--card-bg);
+        }
+
+        .category-filters::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .category-filters::-webkit-scrollbar-thumb {
+            background-color: var(--accent-blue);
+            border-radius: 10px;
+        }
+
+        .btn-category {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid #30363d;
+            border-radius: 50rem;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-category:hover,
+        .btn-category.active {
+            background-color: var(--accent-blue);
+            color: #000;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(0, 176, 255, 0.4);
+        }
+
+        .card-custom {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            color: var(--text-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            background-color: #21262d;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-blue);
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #010409;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fs-4" href="#">CORE GAMER</a>
+            <div class="d-flex align-items-center">
+                <!-- Sección No Autenticado -->
+                <div id="auth-out-section">
+                    <button id="login-btn" class="btn btn-core btn-sm d-flex align-items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 48 48">
+                            <path fill="#EA4335"
+                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                            <path fill="#4285F4"
+                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                            <path fill="#FBBC05"
+                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                            <path fill="#34A853"
+                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                        </svg>
+                        Iniciar sesión
+                    </button>
+                </div>
+                <!-- Sección Autenticado -->
+                <div id="auth-in-section" class="d-none align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <img id="user-avatar" src="" alt="Avatar" class="user-avatar">
+                        <span id="user-name" class="fw-semibold text-light d-none d-md-inline"></span>
+                    </div>
+                    <button id="logout-btn" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Encabezado Principal -->
+    <header class="hero-section text-center">
+        <div class="container col-lg-8 mx-auto">
+            <h1 class="display-5 fw-bold mb-3" style="color: var(--accent-blue);">POTENCIA Y RENDIMIENTO GAMING</h1>
+            <p class="lead text-secondary mb-4" id="welcome-message">
+                Especialistas en componentes informáticos, periféricos y computadoras de alto rendimiento. Inicia sesión
+                con tu cuenta de Google para explorar el catálogo exclusivo.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contenedor de Alertas -->
+    <div class="container mt-3" id="alert-container"></div>
+
+    <!-- Sección de Productos Destacados y Catálogo (Protegido por Firebase & GET) -->
+    <main class="container my-5">
+        <section id="catalog-section" class="d-none">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                <h2 class="h3 fw-bold mb-0">Conocé nuestros <span style="color: var(--accent-blue);">productos
+                        destacados</span></h2>
+            </div>
+
+            <!-- Filtros de Categorías Dinámicos (Estilo Compra Gamer) -->
+            <div class="category-filters mb-4" id="filters-container">
+                <button class="btn-category active" data-category="todos">Todos</button>
+                <button class="btn-category" data-category="Procesador">Procesadores</button>
+                <button class="btn-category" data-category="Placa de Video">Placas de Video</button>
+                <button class="btn-category" data-category="Memoria RAM">Memorias RAM</button>
+                <button class="btn-category" data-category="Almacenamiento">Almacenamiento</button>
+                <button class="btn-category" data-category="Gabinete">Gabinetes</button>
+                <button class="btn-category" data-category="Periféricos">Periféricos</button>
+            </div>
+
+            <!-- Indicador de Carga -->
+            <div id="loading-spinner" class="text-center d-none my-5">
+                <div class="spinner-border" style="color: var(--accent-blue);" role="status">
+                    <span class="visually-hidden">Cargando componentes...</span>
+                </div>
+                <p class="text-secondary mt-2">Verificando credenciales y obteniendo stock del servidor...</p>
+            </div>
+
+            <!-- Contenedor de Tarjetas -->
+            <div id="offers-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <!-- Se inyectan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Mensaje para visitantes no logueados -->
+        <div id="guest-banner" class="text-center py-5">
+            <h3 class="text-secondary">Inicia sesión arriba para visualizar el catálogo de productos destacados.</h3>
+        </div>
+
+        <!-- Formulario de Presupuesto (Método POST) -->
+        <section class="row mt-5 pt-5 border-top border-secondary justify-content-center">
+            <div class="col-lg-7">
+                <div class="card card-custom p-4 shadow">
+                    <h3 class="h4 mb-3 text-center" style="color: var(--accent-blue);">Solicita tu Presupuesto a Medida
+                    </h3>
+                    <p class="text-secondary small text-center mb-4">Envianos tus requerimientos de hardware y un
+                        especialista te responderá.</p>
+
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label for="nombreCliente" class="form-label">Nombre y Apellido</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                                id="nombreCliente" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailCliente" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control bg-dark text-light border-secondary"
+                                id="emailCliente" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="componenteInteres" class="form-label">Detalle de tu PC o componentes
+                                deseados</label>
+                            <textarea class="form-control bg-dark text-light border-secondary" id="componenteInteres"
+                                name="mensaje" rows="3" placeholder="Ej: Presupuesto para PC gamer gama media..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-core w-100 py-2">Enviar Solicitud (POST)</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Core Gamer - Componentes de PC. Todos los derechos reservados.</p>
+            <small class="text-muted">Diseñado para la comunidad gamer y entusiastas del hardware.</small>
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript & Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getAuth,
+            GoogleAuthProvider,
+            signInWithPopup,
+            signOut,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCs_Q69V707InCG4Df5ewrl6X0QvftE9Ww",
+            authDomain: "core-gamer-380da.firebaseapp.com",
+            projectId: "core-gamer-380da",
+            storageBucket: "core-gamer-380da.firebasestorage.app",
+            messagingSenderId: "681792673241",
+            appId: "1:681792673241:web:9d77f82241f8b93da5b5c8"
+        };
+
+        const APPS_SCRIPT_GET_URL = "https://script.google.com/macros/s/AKfycbz-iHxWXk_fbSJJYOnqZ-RUN4IlZYP3yCuy5rGw8V7thRwJLgytE3PwBLV04RgAqrww/exec";
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+
+        const authOutSection = document.getElementById('auth-out-section');
+        const authInSection = document.getElementById('auth-in-section');
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const userName = document.getElementById('user-name');
+        const userAvatar = document.getElementById('user-avatar');
+        const welcomeMessage = document.getElementById('welcome-message');
+        const catalogSection = document.getElementById('catalog-section');
+        const guestBanner = document.getElementById('guest-banner');
+        const offersContainer = document.getElementById('offers-container');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const alertContainer = document.getElementById('alert-container');
+        const filterButtons = document.querySelectorAll('.btn-category');
+
+        let allProducts = []; // Almacena los productos obtenidos de la planilla para filtrarlos localmente
+
+        function showAlert(message, type = 'danger') {
+            alertContainer.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">${message}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>`;
+        }
+
+        loginBtn.addEventListener('click', async () => {
+            try {
+                alertContainer.innerHTML = '';
+                await signInWithPopup(auth, provider);
+            } catch (error) {
+                console.error(error);
+                showAlert("Error al iniciar sesión. Verifique los dominios autorizados en Firebase.");
+            }
+        });
+
+        logoutBtn.addEventListener('click', async () => {
+            await signOut(auth);
+        });
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authOutSection.classList.add('d-none');
+                authInSection.classList.remove('d-none');
+                authInSection.classList.add('d-flex');
+
+                userName.textContent = user.displayName || "Gamer";
+                if (user.photoURL) userAvatar.src = user.photoURL;
+                welcomeMessage.textContent = `¡Bienvenido a Core Gamer, ${user.displayName || "Gamer"}! Ya puedes explorar los productos destacados y componentes disponibles.`;
+
+                guestBanner.classList.add('d-none');
+                catalogSection.classList.remove('d-none');
+
+                await fetchCatalog(user);
+            } else {
+                authInSection.classList.add('d-none');
+                authInSection.classList.remove('d-flex');
+                authOutSection.classList.remove('d-none');
+
+                userName.textContent = "";
+                userAvatar.src = "";
+                welcomeMessage.textContent = "Especialistas en componentes informáticos, periféricos y computadoras de alto rendimiento. Inicia sesión con tu cuenta de Google para explorar el catálogo exclusivo.";
+
+                catalogSection.classList.add('d-none');
+                guestBanner.classList.remove('d-none');
+                offersContainer.innerHTML = '';
+                allProducts = [];
+            }
+        });
+
+        async function fetchCatalog(user) {
+            loadingSpinner.classList.remove('d-none');
+            offersContainer.innerHTML = '';
+
+            try {
+                const token = await user.getIdToken();
+                const response = await fetch(`${APPS_SCRIPT_GET_URL}?token=${encodeURIComponent(token)}`);
+                const data = await response.json();
+
+                loadingSpinner.classList.add('d-none');
+
+                if (data.error) {
+                    showAlert(`Error del servidor: ${data.error}`);
+                    return;
+                }
+
+                if (!Array.isArray(data) || data.length === 0) {
+                    offersContainer.innerHTML = `<div class="col-12 text-center text-secondary py-4"><p>No hay productos destacados disponibles en este momento.</p></div>`;
+                    return;
+                }
+
+                allProducts = data; // Guardamos los productos
+                renderProducts(allProducts); // Los mostramos todos por defecto
+
+            } catch (err) {
+                loadingSpinner.classList.add('d-none');
+                console.error(err);
+                showAlert("Error de conexión al obtener los datos de Google Sheets.");
+            }
+        }
+
+        // Función para pintar las tarjetas en el HTML
+        function renderProducts(products) {
+            offersContainer.innerHTML = '';
+
+            if (products.length === 0) {
+                offersContainer.innerHTML = `<div class="col-12 text-center text-secondary py-4"><p>No se encontraron productos en esta categoría.</p></div>`;
+                return;
+            }
+
+            products.forEach(item => {
+                const col = document.createElement('div');
+                col.className = 'col';
+                col.innerHTML = `
+                    <div class="card card-custom h-100 shadow-sm">
+                        <img src="${item.Imagen || 'https://via.placeholder.com/300x200?text=Core+Gamer'}" class="card-img-top" alt="${item.Nombre}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold fs-6" style="color: var(--accent-blue);">${item.Nombre}</h5>
+                            <p class="card-text text-secondary small flex-grow-1">${item.Descripcion}</p>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="fs-5 fw-bold text-success">$${Number(item.Precio).toLocaleString('es-AR')}</span>
+                                <span class="badge bg-primary">Destacado</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                offersContainer.appendChild(col);
+            });
+        }
+
+        // Manejo de clics en los botones de categorías (Filtrado instantáneo)
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Cambiar clase active visual
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+
+                const category = e.target.getAttribute('data-category');
+
+                if (category === 'todos') {
+                    renderProducts(allProducts);
+                } else {
+                    // Filtra los productos cuyo nombre o descripción contenga la categoría seleccionada
+                    const filtered = allProducts.filter(item =>
+                        item.Nombre.toLowerCase().includes(category.toLowerCase()) ||
+                        (item.Descripcion && item.Descripcion.toLowerCase().includes(category.toLowerCase()))
+                    );
+                    renderProducts(filtered);
+                }
+            });
+        });
+        // Interceptamos el envío del formulario para armar el mensaje de WhatsApp
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evita que la página recargue o dé error
+
+            // Capturamos los valores de los inputs
+            const nombre = document.getElementById('nombreCliente').value.trim();
+            const email = document.getElementById('emailCliente').value.trim();
+            const mensaje = document.getElementById('componenteInteres').value.trim();
+
+            // Tu número de WhatsApp (Ejemplo: 549 por Argentina + código de área + número)
+            const telefono = "5492984310474";
+
+            // Armamos el texto formateado para WhatsApp
+            const texto = `¡Hola Core Gamer! 🎮%0A%0A*Solicitud de Presupuesto*%0A*Nombre:* ${nombre}%0A*Email:* ${email}%0A*Detalle:* ${mensaje}`;
+
+            // Creamos el enlace oficial de WhatsApp y lo abrimos en otra pestaña
+            const urlWhatsApp = `https://wa.me/${telefono}?text=${texto}`;
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
